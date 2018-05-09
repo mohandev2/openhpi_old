@@ -17,6 +17,7 @@
 
 #include <stdlib.h>
 #include <glib.h>
+#include "sahpi_wrappers.h"
 /*
  *  Define our own lock type, this allows for debuging
  *
@@ -42,10 +43,10 @@
 
 #define snmp_bc_lock(bclock)                                                                        \
         do {                                                                                        \
-                if (!g_static_rec_mutex_trylock(&bclock.lock)) {                                    \
+                if (!wrap_g_static_rec_mutex_trylock(&bclock.lock)) {                                    \
                         dbg_snmp_lock("Going to block for a lock now. Lockcount %d\n",              \
 						bclock.count);                                      \
-                        g_static_rec_mutex_lock(&bclock.lock);                                      \
+                        wrap_g_static_rec_mutex_lock(&bclock.lock);                                      \
                         bclock.count++;                                                             \
                         dbg_snmp_lock("Got the lock after blocking, Lockcount %d\n", bclock.count); \
                 } else {                                                                            \
@@ -58,7 +59,7 @@
 #define snmp_bc_unlock(bclock)                                                      \
         do {                                                                        \
                 bclock.count--;                                                     \
-                g_static_rec_mutex_unlock(&bclock.lock);                            \
+                wrap_g_static_rec_mutex_unlock(&bclock.lock);                            \
                 dbg_snmp_lock("Released the lock, lockcount %d\n", bclock.count);   \
         } while(0)
 
