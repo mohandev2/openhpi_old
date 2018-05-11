@@ -1,5 +1,5 @@
 This is an implementation of the Service Availability Forum's 
-Hardware Platform Interface B.03 specification.
+Hardware Platform Interface B.03.02 specification.
 
 The following components are supported:
 * OpenHPI base library
@@ -43,6 +43,10 @@ sysfs plugin
 snmp_bc plugin
   net-snmp >= 5.07
   libuuid (may be found in e2fsprogs or libuuid depending on distro)
+
+ilo2_ribcl plugin
+  libssl >= 0.9.7
+  libxml2
 
 oa_soap plugin
   libssl >= 0.9.7
