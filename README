@@ -267,3 +267,6 @@ vi README # to add these lines. The following are yet to be done. Adding anyway.
 git commit -a # Give Comments. If there are new files do git add first
 git push origin local_for_new_pull_request_with_remote_add
 # Do the rest on the web
+
+This is a new branch called same_name
+
