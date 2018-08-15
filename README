@@ -257,3 +257,13 @@ Also visit SAForum's website at http://www.saforum.org
 
 Adding one line to create first pull request
 
+Done the following to create the second pull request.
+git clone https://github.com/mohandev2/openhpi_old openhpi_old_master4
+cd openhpi_old_master4
+git remote add new_pull_request_with_remote_add https://github.com/mohandev2/openhpi_old
+git pull new_pull_request_with_remote_add master
+git checkout -b local_for_new_pull_request_with_remote_add
+vi README # to add these lines. The following are yet to be done. Adding anyway.
+git commit -a # Give Comments. If there are new files do git add first
+git push origin local_for_new_pull_request_with_remote_add
+# Do the rest on the web
